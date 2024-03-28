@@ -23,7 +23,7 @@ namespace InputsViewer
         private void Form1_Load(object sender, EventArgs e)
         {
             buttons = new List<ButtonInterface>();
-            buttons.Add(new ButtonInterface("fuf", "pic1", "pic2", Keys.B));
+            buttons.Add(new ButtonInterface("fuf", "up1", "down1", Keys.B, pictureBox1));
             gkh.HookedKeys.Add(Keys.B);
             gkh.KeyUp += new KeyEventHandler(gkh_KeyUp);
             gkh.KeyDown += new KeyEventHandler(gkh_Keydown);
@@ -37,7 +37,7 @@ namespace InputsViewer
             {
                 if (e.KeyCode == b.key)
                 {
-                    this.button1.BackColor = Color.Green;
+                    this.pictureBox1.Image = b.upStateImage;
                     break;
                 }
             }
@@ -49,7 +49,7 @@ namespace InputsViewer
             {
                 if (e.KeyCode == b.key)
                 {
-                    this.button1.BackColor = Color.Red;
+                    this.pictureBox1.Image = b.downStateImage;
                     break;
                 }
             }
